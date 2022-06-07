@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Mapper } from './pipes/utility-mapper.pipe';
 import { LOCAL_STORAGE } from './tokens/local-storage.token';
 import { ReplayControlValueChanges } from './tokens/replay-control-value-changes';
@@ -27,7 +27,7 @@ export class AppComponent {
   }
 
   private topicTwo() {
-    const control = new FormControl();
+    const control = new UntypedFormControl();
     const value$ = new ReplayControlValueChanges(control);
     value$.subscribe((value) => console.log('HG LOGS value: ', value));
   }
