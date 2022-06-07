@@ -10,9 +10,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ServerErrorInterceptor } from './interceptors/service-error.interceptor';
 import { MatButtonModule } from '@angular/material/button';
+import { DomManipulationComponent } from './components/dom-manipulation/dom-manipulation.component';
+import { HighlighterDirective } from './directives/highlighter.directive';
+import { DomStructuralManipulationComponent } from './components/dom-structural-manipulation/dom-structural-manipulation.component';
+import { ChildComponent } from './components/child/child.component';
 
 @NgModule({
-  declarations: [AppComponent, UtilityMapperPipe],
+  declarations: [AppComponent, UtilityMapperPipe, DomManipulationComponent, HighlighterDirective, DomStructuralManipulationComponent, ChildComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
