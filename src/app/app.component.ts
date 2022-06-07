@@ -1,4 +1,9 @@
-import { Component, Inject } from '@angular/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  Inject,
+  ViewContainerRef,
+} from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { Mapper } from './pipes/utility-mapper.pipe';
 import { LOCAL_STORAGE } from './tokens/local-storage.token';
@@ -20,7 +25,9 @@ export class AppComponent {
 
   constructor(
     @Inject(LOCAL_STORAGE) private localStorage: Storage,
-    private http: HttpClient
+    private http: HttpClient,
+    private vcref: ViewContainerRef,
+    private cfr: ComponentFactoryResolver
   ) {
     this.topicOne();
     this.topicThree();
@@ -46,5 +53,13 @@ export class AppComponent {
 
   topicSevenThrowServerError() {
     this.http.get('invalidUrl').subscribe();
+  }
+
+  async topic10LoadLazyComponent() {
+    this.vcref.clear();
+    const { LazyLoadedComponent } = await import(
+      './components/lazy-loaded/lazy-loaded.component'
+    );
+    let greetcomp = this.vcref.createComponent(LazyLoadedComponent);
   }
 }

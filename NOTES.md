@@ -55,3 +55,59 @@ Here, ViewContainerRef is a very important part, which makes the DOM node as a v
 
 This step creates the view and adds the view into view container.
 viewContainer.CreateEmbeddedView(TemplateRef);
+
+## Next Topic
+
+Difference between Constructor and ngOnInit - A constructor in turn is a different thing. Regardless whether you implement it or not in TypeScript class it’s still will be called when creating an instance of a class. This is because a typescript class constructor is transpiled into a JavaScript constructor function. If you omit the constructor in a class, it’s transpiled into an empty function.
+
+Angular bootstrap process consists of the two major stages: constructing components tree, running change detection.
+
+And the constructor of the component is called when Angular constructs components tree. All lifecycle hooks including ngOnInit are called as part of the following change detection phase.
+
+A component constructor is the only method that is called in the context of the injector so if you need any dependency that’s the only place to get those dependencies. The @Input communication mechanism is processed as part of following change detection phase so input bindings are not available in constructor.
+
+When Angular starts change detection the components tree is constructed and the constructors for all components in the tree have been called. Also at this point every component’s template nodes are added to the DOM.
+
+<my-app>
+   <child-comp [i]='prop'>
+
+So Angular starts bootstrapping the application. As described above it first creates classes for each component. So it calls MyAppComponent constructor. When executing a component constructor Angular resolves all dependencies that are injected into MyAppComponent constructor and provides them as parameters. It also creates a DOM node which is the host element of the my-app component. Then it proceeds to creating a host element for the child-comp and calling ChildComponent constructor. At this stage Angular is not concerned with the i input binding and any lifecycle hooks. So when this process is finished Angular ends up with the following tree of component views:
+
+MyAppView
+
+- MyApp component instance
+- my-app host element data
+  ChildComponentView - ChildComponent component instance - child-comp host element data
+
+Only then Angular runs change detection and updates bindings for the my-app and calls ngOnInit on the MyAppComponent instance. Then it proceeds to updating the bindings for the child-comp and calls ngOnInit on the ChildComponent class.
+
+NgOnInit - As we learnt above when Angular calls ngOnInit it has finished creating a component DOM, injected all required dependencies through constructor and processed input bindings. So here you have all the required information available which makes it a good place to perform initialization logic.
+
+It’s a common practice to use ngOnInit to perform initialization logic even if this logic doesn’t depend on DI, DOM or input bindings.
+
+### Next topic
+
+Do you know if Angular first checks siblings of the current component (breadth-first) or its children (depth-first)?
+
+Key operations performed by change detection are the following:
+
+- update child components properties
+- call NgOnChanges and NgDoCheck lifecycle hooks on child components
+- update DOM on the current component
+- run change detection for child components
+
+I highlighted one interesting specifics above — when Angular checks the current component it calls lifecycle hooks on child components, but renders DOM for the current component. And that’s a very important distinction. This is precisely the reason that makes it seem as if the algorithm runs breadth-first if we put logging into NgDoCheck hook. When Angular checks a current component it calls lifecycle hooks for all its child components which are siblings. Suppose Angular checks K component now and calls NgDoCheck lifecycle hook on L and C. So, we get the following:
+
+Looks like breadth-first algorithm. However, remember that Angular still in the process of checking K component. So after completing all operations for the K component it doesn’t proceed to checking the sibling V component, as it would with the breadth-first implementation. Instead, it goes on to check L component, which is a child of K. This is the depth-first implementation of change detection algorithm. And as we now know it will call ngDoCheck on J and O components and this is exactly what happens.
+
+So, after all, my gut didn’t let me down. Change detection mechanism is implemented as depth-first internally, but involves calling ngDoCheck lifecycle hooks on sibling components first.
+
+<https://indepth.dev/posts/1002/he-who-thinks-change-detection-is-depth-first-and-he-who-thinks-its-breadth-first-are-both-usually-right>
+
+Topic 10
+
+ng g c greet --flat --skip-import
+
+As of the official documentation, ComponentFactoryResolver class is a simple registry that maps components to generated ComponentFactory classes that can be used to create an instance of the component using the create() method.
+
+The ViewContainerRef represents a container where one or more views can be attached. It can contain host views by instantiating a component with the createComponent() method.
