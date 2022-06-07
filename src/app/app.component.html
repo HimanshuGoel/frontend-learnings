@@ -3,4 +3,15 @@
   <p>Capped value: {{ value | utilityMapper: capValue:max }}</p>
 </div>
 
+<div>
+  <button mat-raised-button color="warn" (click)="topicSevenThrowClientError()">
+    Throw Client Error
+  </button>
+  <br />
+  <br />
+  <button mat-raised-button color="warn" (click)="topicSevenThrowServerError()">
+    Throw Server Error
+  </button>
+</div>
+
 <router-outlet></router-outlet>

@@ -28,7 +28,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Learning Topics
 
-- Tokenize global objects (window.localStorage)
-- Extend Observable or Subject (Geo-location Service)
-- Common pipe for any case of data transformation (Utility mapper)
-- Data share through observable (Data share service)
+- Topic 1 - Tokenize global objects (local-storage.token.ts)
+- Topic 2 - Extend Observable or Subject (replay-control-value-changes.ts)
+- Topic 3 - Common pipe for any case of data transformation (utility-mapper.pipe.ts)
+- Topic 4 - Data share through observable (data-share.service.ts)
+- Topic 5 - Best Practices (BEST_PRACTICES.md)
+- Topic 6 - Extracted Notes (NOTES.md)
+- Topic 7 - Global Error Handler (global-error.handler.ts)

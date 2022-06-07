@@ -2,7 +2,8 @@ import { Component, Inject } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { Mapper } from './pipes/utility-mapper.pipe';
 import { LOCAL_STORAGE } from './tokens/local-storage.token';
-import { ReplayControlValueChanges } from './tokens/replay-control-value-changes';
+import { ReplayControlValueChanges } from './extensions/replay-control-value-changes';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,10 @@ export class AppComponent {
 
   capValue!: Mapper<number, number>;
 
-  constructor(@Inject(LOCAL_STORAGE) private localStorage: Storage) {
+  constructor(
+    @Inject(LOCAL_STORAGE) private localStorage: Storage,
+    private http: HttpClient
+  ) {
     this.topicOne();
     this.topicThree();
   }
@@ -34,5 +38,13 @@ export class AppComponent {
 
   private topicThree() {
     this.capValue = (value: number, max: number) => Math.min(value, max);
+  }
+
+  topicSevenThrowClientError() {
+    throw new Error('My Pretty Error');
+  }
+
+  topicSevenThrowServerError() {
+    this.http.get('invalidUrl').subscribe();
   }
 }
