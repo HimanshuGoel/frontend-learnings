@@ -20,6 +20,11 @@ import { HomeComponent } from './components/home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CardComponent } from './components/card/card.component';
 import { CardContainerComponent } from './components/card-container/card-container.component';
+import { DynamicComponent } from './components/dynamic/dynamic.component';
+import { DynamicContainerComponent } from './components/dynamic-container/dynamic-container.component';
+import { DynamicContainerWithDirectiveComponent } from './components/dynamic-container-with-directive/dynamic-container-with-directive.component';
+import { ComponentContainerDirective } from './directives/component-container.directive';
+import { ListComponent } from './components/list/list.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +37,11 @@ import { CardContainerComponent } from './components/card-container/card-contain
     HomeComponent,
     CardComponent,
     CardContainerComponent,
+    DynamicComponent,
+    DynamicContainerComponent,
+    DynamicContainerWithDirectiveComponent,
+    ComponentContainerDirective,
+    ListComponent,
   ],
   imports: [
     FlexLayoutModule,

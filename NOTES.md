@@ -124,3 +124,18 @@ It also provides a support for building the responsive UI with simple template s
 Next Topic
 
 ng new my-workspace --no-create-application
+
+Next Topic - Creating Dynamic Component using Directive
+ViewContainerRef can usually only be used after ngAfterViewInit hook.
+
+We have to wait until the ViewChild query is evaluated and that happens during change detection. We can access the reference only after ngAfterViewInit lifecycle hook. But what if we don’t want to wait until Angular runs change detection and want to have a complete component view before change detection? As it turns out we can do that using a directive instead of template reference and ViewChild query.
+
+we now know how a directive can access the view container before change detection.
+
+Next Topic - Rendering dynamic components by selector
+
+Angular gives us the mechanism to render components dynamically through View Container using ComponentFactory. To do this, we need to know the Component Type at the compile time.
+
+The most dynamic component rendering mechanism would be the one where we don't know what component will be rendered at the compile time. This article talks about rendering an Angular component based on its selector, which is available only at run-time in the browser.
+
+Before Ivy (version 8), Angular had a mechanism to define entryComponents in modules. Adding the component to the entryComponents array would make the factories for these dynamic components available at runtime. It was needed to make sure TreeShaking does not remove these components from the final production bundle of the module.

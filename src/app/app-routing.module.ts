@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CardContainerComponent } from './components/card-container/card-container.component';
+import { DynamicContainerWithDirectiveComponent } from './components/dynamic-container-with-directive/dynamic-container-with-directive.component';
+import { DynamicContainerComponent } from './components/dynamic-container/dynamic-container.component';
 
 import { HomeComponent } from './components/home/home.component';
+import { ListComponent } from './components/list/list.component';
 
 const routes: Routes = [
   {
@@ -19,6 +22,21 @@ const routes: Routes = [
     path: 'card-container',
     component: CardContainerComponent,
     title: 'Card Container',
+  },
+  {
+    path: 'dynamic-container',
+    component: DynamicContainerComponent,
+    title: 'Dynamic Container',
+  },
+  {
+    path: 'dynamic-container-with-directive',
+    component: DynamicContainerWithDirectiveComponent,
+    title: 'Dynamic Container with Directive',
+  },
+  {
+    path: 'list-solid-principle',
+    component: ListComponent,
+    title: 'List SOLID principle',
   },
   {
     path: '**',

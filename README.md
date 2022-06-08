@@ -40,3 +40,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Topic 10 - Lazy loaded component (lazy-loaded.component.html)
 - Topic 11 - Page Titles Service with Routing (app.routing.module.ts)
 - Topic 12 - Flex Layout and Grid Layout (card-container.component.ts and card.component.ts)
+- Topic 13 - Dynamic Component using ViewChild (dynamic-container.component.ts)
+- Topic 14 - Dynamic Component using Directive (dynamic-container-with-directive.component.ts)
+- Topic 15 - SOLID Principles (list.service.ts, articles-list.service.ts, authors-list.service.ts, list.component.ts)
