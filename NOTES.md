@@ -111,3 +111,16 @@ ng g c greet --flat --skip-import
 As of the official documentation, ComponentFactoryResolver class is a simple registry that maps components to generated ComponentFactory classes that can be used to create an instance of the component using the create() method.
 
 The ViewContainerRef represents a container where one or more views can be attached. It can contain host views by instantiating a component with the createComponent() method.
+
+Next Topic
+
+Angular Flex Layout provides a sophisticated layout API using Flexbox CSS + mediaQuery.
+
+Topic 12
+
+Making a Flexbox layout - Angular Flex-Layout is an official package to use CSS Flexbox/Grid in the template HTML declaratively.
+It also provides a support for building the responsive UI with simple template syntax.
+
+Next Topic
+
+ng new my-workspace --no-create-application

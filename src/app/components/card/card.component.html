@@ -1,0 +1,32 @@
+<!-- <div>Card: {{name}}</div> -->
+
+<!-- Using plain Grid layout CSS
+<style>
+  .cardInner {
+    display: grid;
+    grid-template-areas: 'header header' 'side content' 'footer footer';
+    grid-template-rows: auto auto auto;
+    grid-row-gap: 16px;
+    grid-column-gap: 16px;
+  }
+</style>
+<div class="cardInner">
+  <div [style.grid-area]="'header'">Header</div>
+  <div [style.grid-area]="'side'">Side</div>
+  <div [style.grid-area]="'content'">Content</div>
+  <div [style.grid-area]="'footer'">Footer</div>
+</div> -->
+
+<!-- Using angular Grid layout API -->
+<div
+  gdAreas="header header | side content | footer footer"
+  gdGap="16px"
+  gdRows="auto auto auto"
+  gdAreas.lt-md="header | side | content | footer"
+  gdRows.lt-md="auto auto auto auto"
+>
+  <div gdArea="header">Header</div>
+  <div gdArea="side">Side</div>
+  <div gdArea="content">Content</div>
+  <div gdArea="footer">Footer</div>
+</div>

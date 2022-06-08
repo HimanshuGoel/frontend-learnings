@@ -14,10 +14,27 @@ import { DomManipulationComponent } from './components/dom-manipulation/dom-mani
 import { HighlighterDirective } from './directives/highlighter.directive';
 import { DomStructuralManipulationComponent } from './components/dom-structural-manipulation/dom-structural-manipulation.component';
 import { ChildComponent } from './components/child/child.component';
+import { TitleStrategy } from '@angular/router';
+import { AppPrefixTitleStrategy } from './strategies/app-prefix-title.strategy';
+import { HomeComponent } from './components/home/home.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { CardComponent } from './components/card/card.component';
+import { CardContainerComponent } from './components/card-container/card-container.component';
 
 @NgModule({
-  declarations: [AppComponent, UtilityMapperPipe, DomManipulationComponent, HighlighterDirective, DomStructuralManipulationComponent, ChildComponent],
+  declarations: [
+    AppComponent,
+    UtilityMapperPipe,
+    DomManipulationComponent,
+    HighlighterDirective,
+    DomStructuralManipulationComponent,
+    ChildComponent,
+    HomeComponent,
+    CardComponent,
+    CardContainerComponent,
+  ],
   imports: [
+    FlexLayoutModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -31,6 +48,10 @@ import { ChildComponent } from './components/child/child.component';
       provide: HTTP_INTERCEPTORS,
       useClass: ServerErrorInterceptor,
       multi: true,
+    },
+    {
+      provide: TitleStrategy,
+      useClass: AppPrefixTitleStrategy,
     },
   ],
   bootstrap: [AppComponent],

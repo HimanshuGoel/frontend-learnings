@@ -1,0 +1,28 @@
+<!-- By using plain CSS flex layout -->
+<div>Plain CSS flex layout</div>
+<div class="cardList">
+  <app-card></app-card>
+  <app-card></app-card>
+  <app-card></app-card>
+</div>
+
+<br />
+<br />
+
+<!-- By using angular flex layout -->
+<div>Angular flex layout</div>
+<div fxLayout="column" fxLayoutGap="32px">
+  <app-card></app-card>
+  <app-card></app-card>
+  <app-card></app-card>
+</div>
+
+<div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+  <ng-container *ngFor="let _ of [1, 2, 3, 4, 5, 6]">
+    <app-card
+      fxFlex="0 1 calc(33.3% - 32px)"
+      fxFlex.lt-md="0 1 calc(50% - 32px)"
+      fxFlex.lt-sm="100%"
+    ></app-card>
+  </ng-container>
+</div>

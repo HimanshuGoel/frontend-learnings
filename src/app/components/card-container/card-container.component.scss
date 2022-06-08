@@ -1,0 +1,9 @@
+.cardList {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Row Gap */
+.cardList > *:not(:last-child) {
+  margin-bottom: 32px;
+}

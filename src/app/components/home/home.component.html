@@ -1,0 +1,31 @@
+<div>
+  <b>Topic three</b>
+  <p>Capped value: {{ value | utilityMapper: capValue:max }}</p>
+</div>
+
+<div>
+  <button mat-raised-button color="warn" (click)="topicSevenThrowClientError()">
+    Throw Client Error
+  </button>
+  <br />
+  <br />
+  <button mat-raised-button color="warn" (click)="topicSevenThrowServerError()">
+    Throw Server Error
+  </button>
+</div>
+
+<br />
+
+<div>Topic 8</div>
+<app-dom-manipulation></app-dom-manipulation>
+
+<br />
+<br />
+
+<div>Topic 9</div>
+<app-dom-structural-manipulation></app-dom-structural-manipulation>
+
+<div>Topic 10</div>
+<button mat-raised-button color="primary" (click)="topic10LoadLazyComponent()">
+  Load Lazy Component
+</button>

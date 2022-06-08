@@ -38,3 +38,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Topic 8 - Using Renderer2 for Modify DOM elements (dom-manipulation.component.html)
 - Topic 9 - Using ViewContainerRef for Modify DOM structure (dom-structural-manipulation.component.html)
 - Topic 10 - Lazy loaded component (lazy-loaded.component.html)
+- Topic 11 - Page Titles Service with Routing (app.routing.module.ts)
+- Topic 12 - Flex Layout and Grid Layout (card-container.component.ts and card.component.ts)
