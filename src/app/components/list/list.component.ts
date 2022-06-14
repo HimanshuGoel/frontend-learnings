@@ -1,8 +1,8 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ArticleListService } from 'src/app/services/article-list.service';
-import { AuthorListService } from 'src/app/service/author-list.service';
-import { ListService } from 'src/app/service/list.service';
+import { ListService } from '../../services/list.service';
+import { AuthorListService } from '../../services/author-list.service';
+import { ArticleListService } from '../../services/article-list.service';
 
 @Component({
   selector: 'app-list',

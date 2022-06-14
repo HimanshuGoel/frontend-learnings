@@ -59,3 +59,7 @@ Dynamic Component using Directive (dynamic-container-with-directive.component.ts
 ## Topic 15
 
 SOLID Principles (list.service.ts, articles-list.service.ts, authors-list.service.ts, list.component.ts)
+
+## Topic 16
+
+Content Dictionary

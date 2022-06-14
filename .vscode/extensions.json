@@ -1,0 +1,21 @@
+{
+  "recommendations": [
+    "angular.ng-template",
+    "johnpapa.angular2",
+    "wesbos.theme-cobalt2",
+    "streetsidesoftware.code-spell-checker",
+    "dbaeumer.vscode-eslint",
+    "pomber.git-file-history",
+    "github.copilot",
+    "yzhang.markdown-all-in-one",
+    "davidanson.vscode-markdownlint",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "alefragnani.project-manager",
+    "mike-co.import-sorter",
+    "pmneo.tsimporter",
+    "vscode-icons-team.vscode-icons",
+    "wallabyjs.wallaby-vscode"
+  ]
+}

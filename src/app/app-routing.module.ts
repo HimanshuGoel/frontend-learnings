@@ -39,6 +39,13 @@ const routes: Routes = [
     title: 'List SOLID principle'
   },
   {
+    path: 'content-dictionary',
+    loadChildren: () =>
+      import('./features/content-dictionary/content-dictionary.module').then(
+        (m) => m.ContentDictionaryModule
+      )
+  },
+  {
     path: '**',
     redirectTo: 'home',
     pathMatch: 'full'
