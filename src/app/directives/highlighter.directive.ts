@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[appHighlighter]',
+  selector: '[appHighlighter]'
 })
 export class HighlighterDirective {
   @Input() appHighlight!: string;
@@ -9,10 +9,6 @@ export class HighlighterDirective {
   constructor(private element: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit() {
-    this.renderer.setAttribute(
-      this.element.nativeElement,
-      this.appHighlight,
-      ''
-    );
+    this.renderer.setAttribute(this.element.nativeElement, this.appHighlight, '');
   }
 }

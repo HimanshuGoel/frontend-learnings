@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ComponentFactoryResolver,
-  Inject,
-  ViewContainerRef,
-} from '@angular/core';
+import { Component, Inject, ViewContainerRef } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 
 import { HttpClient } from '@angular/common/http';
@@ -15,7 +9,7 @@ import { ReplayControlValueChanges } from '../../extensions/replay-control-value
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
   title = 'frontend-learnings';
@@ -28,8 +22,7 @@ export class HomeComponent {
   constructor(
     @Inject(LOCAL_STORAGE) private localStorage: Storage,
     private http: HttpClient,
-    private vcref: ViewContainerRef,
-    private cfr: ComponentFactoryResolver
+    private viewContainerRef: ViewContainerRef
   ) {
     this.topicOne();
     this.topicThree();
@@ -58,10 +51,8 @@ export class HomeComponent {
   }
 
   async topic10LoadLazyComponent() {
-    this.vcref.clear();
-    const { LazyLoadedComponent } = await import(
-      '../lazy-loaded/lazy-loaded.component'
-    );
-    let greetcomp = this.vcref.createComponent(LazyLoadedComponent);
+    this.viewContainerRef.clear();
+    const { LazyLoadedComponent } = await import('../lazy-loaded/lazy-loaded.component');
+    let compRef = this.viewContainerRef.createComponent(LazyLoadedComponent);
   }
 }

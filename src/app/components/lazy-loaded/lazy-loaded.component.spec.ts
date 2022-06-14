@@ -8,9 +8,8 @@ describe('LazyLoadedComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LazyLoadedComponent ]
-    })
-    .compileComponents();
+      declarations: [LazyLoadedComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LazyLoadedComponent);
     component = fixture.componentInstance;

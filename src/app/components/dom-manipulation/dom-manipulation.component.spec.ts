@@ -8,9 +8,8 @@ describe('DomManipulationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DomManipulationComponent ]
-    })
-    .compileComponents();
+      declarations: [DomManipulationComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DomManipulationComponent);
     component = fixture.componentInstance;

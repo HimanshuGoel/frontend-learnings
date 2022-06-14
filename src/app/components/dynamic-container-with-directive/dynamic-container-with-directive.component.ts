@@ -1,5 +1,5 @@
-import { Component, ComponentFactoryResolver, OnInit, ViewContainerRef } from '@angular/core';
-import { DynamicContainerShareService } from '../../service/dynamic-container-share.service';
+import { Component, ViewContainerRef } from '@angular/core';
+import { DynamicContainerShareService } from '../../services/dynamic-container-share.service';
 import { DynamicComponent } from '../dynamic/dynamic.component';
 
 @Component({
@@ -9,10 +9,9 @@ import { DynamicComponent } from '../dynamic/dynamic.component';
 })
 export class DynamicContainerWithDirectiveComponent {
   vc!: ViewContainerRef | undefined;
-  constructor(private r: ComponentFactoryResolver, shared: DynamicContainerShareService) {
+  constructor(shared: DynamicContainerShareService) {
     shared.onContainerCreated((container) => {
       this.vc = container;
-      // const factory = this.r.resolveComponentFactory(DynamicComponent);
       this.vc.createComponent(DynamicComponent);
     });
 

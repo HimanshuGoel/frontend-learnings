@@ -1,6 +1,6 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ArticleListService } from 'src/app/service/article-list.service';
+import { ArticleListService } from 'src/app/services/article-list.service';
 import { AuthorListService } from 'src/app/service/author-list.service';
 import { ListService } from 'src/app/service/list.service';
 

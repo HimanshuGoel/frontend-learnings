@@ -8,9 +8,8 @@ describe('DynamicContainerWithDirectiveComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DynamicContainerWithDirectiveComponent ]
-    })
-    .compileComponents();
+      declarations: [DynamicContainerWithDirectiveComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DynamicContainerWithDirectiveComponent);
     component = fixture.componentInstance;

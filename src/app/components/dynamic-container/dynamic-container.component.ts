@@ -1,10 +1,4 @@
-import {
-  Component,
-  ComponentFactoryResolver,
-  OnInit,
-  ViewChild,
-  ViewContainerRef
-} from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { DynamicComponent } from '../dynamic/dynamic.component';
 
 @Component({
@@ -15,12 +9,11 @@ import { DynamicComponent } from '../dynamic/dynamic.component';
 export class DynamicContainerComponent implements OnInit {
   @ViewChild('vc', { read: ViewContainerRef }) vc!: ViewContainerRef;
 
-  constructor(private cfr: ComponentFactoryResolver) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
   ngAfterViewInit() {
-    // const factory = this.cfr.resolveComponentFactory(DynamicComponent);
-    const component = this.vc.createComponent(DynamicComponent);
+    const componentRed = this.vc.createComponent(DynamicComponent);
   }
 }

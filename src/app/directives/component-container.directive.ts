@@ -1,5 +1,5 @@
 import { Directive, ViewContainerRef } from '@angular/core';
-import { DynamicContainerShareService } from '../service/dynamic-container-share.service';
+import { DynamicContainerShareService } from '../services/dynamic-container-share.service';
 
 @Directive({
   selector: '[appComponentContainer]'

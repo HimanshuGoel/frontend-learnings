@@ -7,13 +7,13 @@ import {
   TemplateRef,
   ViewChild,
   ViewChildren,
-  ViewContainerRef,
+  ViewContainerRef
 } from '@angular/core';
 
 @Component({
   selector: 'app-dom-structural-manipulation',
   templateUrl: './dom-structural-manipulation.component.html',
-  styleUrls: ['./dom-structural-manipulation.component.scss'],
+  styleUrls: ['./dom-structural-manipulation.component.scss']
 })
 export class DomStructuralManipulationComponent implements OnInit {
   @ViewChildren('child', { read: ElementRef })

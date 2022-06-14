@@ -10,8 +10,8 @@ import { Component, OnInit } from '@angular/core';
         background: green;
         color: white;
       }
-    `,
-  ],
+    `
+  ]
 })
 export class DomManipulationComponent implements OnInit {
   constructor() {}

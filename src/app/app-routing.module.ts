@@ -11,42 +11,42 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full',
+    pathMatch: 'full'
   },
   {
     path: 'home',
     component: HomeComponent,
-    title: 'Home',
+    title: 'Home'
   },
   {
     path: 'card-container',
     component: CardContainerComponent,
-    title: 'Card Container',
+    title: 'Card Container'
   },
   {
     path: 'dynamic-container',
     component: DynamicContainerComponent,
-    title: 'Dynamic Container',
+    title: 'Dynamic Container'
   },
   {
     path: 'dynamic-container-with-directive',
     component: DynamicContainerWithDirectiveComponent,
-    title: 'Dynamic Container with Directive',
+    title: 'Dynamic Container with Directive'
   },
   {
     path: 'list-solid-principle',
     component: ListComponent,
-    title: 'List SOLID principle',
+    title: 'List SOLID principle'
   },
   {
     path: '**',
     redirectTo: 'home',
-    pathMatch: 'full',
-  },
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

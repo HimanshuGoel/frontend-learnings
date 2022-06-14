@@ -2,6 +2,8 @@
 
 ## Angular
 
+### Topic 1
+
 Client-side errors - On the client side, when something unexpected happens, a JavaScript Error is thrown. It has two important properties that we can use:
 
 - message — Human-readable description of the error.
@@ -9,7 +11,7 @@ Client-side errors - On the client side, when something unexpected happens, a Ja
 
 Server-side errors - On the server-side, when something goes wrong, a HttpErrorResponse is returned. As with the JavaScript error, it has a message property that we can use for notifications.
 
-**Next Topic**
+### Topic 2
 
 Modifying DOM Elements: We are familiar with a lot of JavaScript methods that modify the DOM element. Here are some of them:
 
@@ -19,7 +21,7 @@ Modifying DOM Elements: We are familiar with a lot of JavaScript methods that mo
 
 We should not access the DOM elements directly by using ElementRef Class. Permitting direct access to the DOM can make our applications more vulnerable and XSS attacks. Renderer — Makes direct DOM access safe and it is Platform independent. It modifies the DOM elements without touch the DOM directly. A renderer is a service that consists of some methods. It helps to manipulate the DOM.
 
-**Next Topic**
+### Topic 3
 
 removeChild(){
 this.renderer.removeChild(this.host.nativeElement, this.childComp.first.nativeElement);
@@ -56,7 +58,7 @@ Here, ViewContainerRef is a very important part, which makes the DOM node as a v
 This step creates the view and adds the view into view container.
 viewContainer.CreateEmbeddedView(TemplateRef);
 
-## Next Topic
+### Topic 4
 
 Difference between Constructor and ngOnInit - A constructor in turn is a different thing. Regardless whether you implement it or not in TypeScript class it’s still will be called when creating an instance of a class. This is because a typescript class constructor is transpiled into a JavaScript constructor function. If you omit the constructor in a class, it’s transpiled into an empty function.
 
@@ -68,8 +70,9 @@ A component constructor is the only method that is called in the context of the 
 
 When Angular starts change detection the components tree is constructed and the constructors for all components in the tree have been called. Also at this point every component’s template nodes are added to the DOM.
 
-<my-app>
-   <child-comp [i]='prop'>
+```html
+<my-app> <child-comp [i]="prop"></child-comp></my-app>
+```
 
 So Angular starts bootstrapping the application. As described above it first creates classes for each component. So it calls MyAppComponent constructor. When executing a component constructor Angular resolves all dependencies that are injected into MyAppComponent constructor and provides them as parameters. It also creates a DOM node which is the host element of the my-app component. Then it proceeds to creating a host element for the child-comp and calling ChildComponent constructor. At this stage Angular is not concerned with the i input binding and any lifecycle hooks. So when this process is finished Angular ends up with the following tree of component views:
 
@@ -85,7 +88,7 @@ NgOnInit - As we learnt above when Angular calls ngOnInit it has finished creati
 
 It’s a common practice to use ngOnInit to perform initialization logic even if this logic doesn’t depend on DI, DOM or input bindings.
 
-### Next topic
+### Topic 5
 
 Do you know if Angular first checks siblings of the current component (breadth-first) or its children (depth-first)?
 
@@ -104,7 +107,7 @@ So, after all, my gut didn’t let me down. Change detection mechanism is implem
 
 <https://indepth.dev/posts/1002/he-who-thinks-change-detection-is-depth-first-and-he-who-thinks-its-breadth-first-are-both-usually-right>
 
-Topic 10
+### Topic 6
 
 ng g c greet --flat --skip-import
 
@@ -112,27 +115,31 @@ As of the official documentation, ComponentFactoryResolver class is a simple reg
 
 The ViewContainerRef represents a container where one or more views can be attached. It can contain host views by instantiating a component with the createComponent() method.
 
-Next Topic
+### Topic 7
 
 Angular Flex Layout provides a sophisticated layout API using Flexbox CSS + mediaQuery.
 
-Topic 12
+### Topic 8
 
 Making a Flexbox layout - Angular Flex-Layout is an official package to use CSS Flexbox/Grid in the template HTML declaratively.
 It also provides a support for building the responsive UI with simple template syntax.
 
-Next Topic
+### Topic 9
 
 ng new my-workspace --no-create-application
 
-Next Topic - Creating Dynamic Component using Directive
+### Topic 10
+
+Creating Dynamic Component using Directive
 ViewContainerRef can usually only be used after ngAfterViewInit hook.
 
 We have to wait until the ViewChild query is evaluated and that happens during change detection. We can access the reference only after ngAfterViewInit lifecycle hook. But what if we don’t want to wait until Angular runs change detection and want to have a complete component view before change detection? As it turns out we can do that using a directive instead of template reference and ViewChild query.
 
 we now know how a directive can access the view container before change detection.
 
-Next Topic - Rendering dynamic components by selector
+### Topic 11
+
+Rendering dynamic components by selector
 
 Angular gives us the mechanism to render components dynamically through View Container using ComponentFactory. To do this, we need to know the Component Type at the compile time.
 
