@@ -25,6 +25,8 @@ import { DynamicContainerComponent } from './components/dynamic-container/dynami
 import { DynamicContainerWithDirectiveComponent } from './components/dynamic-container-with-directive/dynamic-container-with-directive.component';
 import { ComponentContainerDirective } from './directives/component-container.directive';
 import { ListComponent } from './components/list/list.component';
+import { ProxyConfComponent } from './components/proxy-conf/proxy-conf.component';
+import { PreToPostBuildComponent } from './components/pre-to-post-build/pre-to-post-build.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { ListComponent } from './components/list/list.component';
     DynamicContainerComponent,
     DynamicContainerWithDirectiveComponent,
     ComponentContainerDirective,
-    ListComponent
+    ListComponent,
+    ProxyConfComponent,
+    PreToPostBuildComponent
   ],
   imports: [
     FlexLayoutModule,

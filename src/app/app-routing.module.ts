@@ -6,11 +6,13 @@ import { DynamicContainerComponent } from './components/dynamic-container/dynami
 
 import { HomeComponent } from './components/home/home.component';
 import { ListComponent } from './components/list/list.component';
+import { ProxyConfComponent } from './components/proxy-conf/proxy-conf.component';
+import { PreToPostBuildComponent } from './components/pre-to-post-build/pre-to-post-build.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'pre-to-post-build',
     pathMatch: 'full'
   },
   {
@@ -37,6 +39,16 @@ const routes: Routes = [
     path: 'list-solid-principle',
     component: ListComponent,
     title: 'List SOLID principle'
+  },
+  {
+    path: 'proxy-conf',
+    component: ProxyConfComponent,
+    title: 'Proxy Conf Component'
+  },
+  {
+    path: 'pre-to-post-build',
+    component: PreToPostBuildComponent,
+    title: 'Pre to Post Build'
   },
   {
     path: 'content-dictionary',

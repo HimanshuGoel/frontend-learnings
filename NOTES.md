@@ -146,3 +146,28 @@ Angular gives us the mechanism to render components dynamically through View Con
 The most dynamic component rendering mechanism would be the one where we don't know what component will be rendered at the compile time. This article talks about rendering an Angular component based on its selector, which is available only at run-time in the browser.
 
 Before Ivy (version 8), Angular had a mechanism to define entryComponents in modules. Adding the component to the entryComponents array would make the factories for these dynamic components available at runtime. It was needed to make sure TreeShaking does not remove these components from the final production bundle of the module.
+
+## Topic 12
+
+Zone.js patches all common async APIs like setTimeout, setInterval, the promise API, etc. to keep track of all async operations. Zone is a mechanism for intercepting and keeping track of asynchronous work. For each async operation, Zone.js creates a task. A task is run in one zone.
+
+By injecting the NgZone, you get an API for deciding if an async operation runs in or outside of the NgZone. The method runOutsideAngular can be used to run code outside NgZone so change detection is not triggered.
+
+```typescript
+constructor(private ngZone: NgZone) {
+  this.ngZone.runOutsideAngular(() => {
+    // this will not trigger change detection
+    setInterval(() => doSomething(), 100)
+  });
+}
+```
+
+After every command you send to the browser, Protractor will wait until the zone becomes stable, and only continue then. If you’re using, for example, setInterval with a short interval time this will mean that the NgZone will never stabilize and your test will freeze and timeout.
+
+These kinds of problems can be solved by running long-running or repeatedly running tasks outside of the Angular Zone.
+
+You might notice, in some cases, that performance is getting worse. This might be an indicator to look at what’s happening between Zone.js and the digest cycles from Angular.js.
+
+Whenever all micro tasks are done in the NgZone, ng-upgrade triggers a $digest on the rootScope.
+
+If a digest triggers any async code like a setTimeout, this will create another task in the NgZone. Once this is done $digest will be triggered again and again.

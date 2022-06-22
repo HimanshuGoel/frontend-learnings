@@ -1,4 +1,4 @@
-# FrontendLearnings
+# Frontend Learnings
 
 ## Overview
 
