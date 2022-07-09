@@ -12,7 +12,7 @@ import { PreToPostBuildComponent } from './components/pre-to-post-build/pre-to-p
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'pre-to-post-build',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {

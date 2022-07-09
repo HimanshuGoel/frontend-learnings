@@ -27,6 +27,8 @@ import { ComponentContainerDirective } from './directives/component-container.di
 import { ListComponent } from './components/list/list.component';
 import { ProxyConfComponent } from './components/proxy-conf/proxy-conf.component';
 import { PreToPostBuildComponent } from './components/pre-to-post-build/pre-to-post-build.component';
+import { CustomHeadersInterceptor } from './interceptors/custom-header.interceptor';
+import { LogInterceptor } from './interceptors/log.interceptor';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,16 @@ import { PreToPostBuildComponent } from './components/pre-to-post-build/pre-to-p
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ServerErrorInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LogInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CustomHeadersInterceptor,
       multi: true
     },
     {

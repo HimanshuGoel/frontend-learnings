@@ -32,6 +32,13 @@ export class HomeComponent {
     console.log('HG LOGS localStorage: ', this.localStorage);
   }
 
+  callBackendService() {
+    this.http.get(' https://dummy.free.beeceptor.com/hello').subscribe(
+      (data) => console.log('HG LOGS data: ', data),
+      (error) => console.log('HG LOGS error: ', error)
+    );
+  }
+
   private topicTwo() {
     const control = new UntypedFormControl();
     const value$ = new ReplayControlValueChanges(control);

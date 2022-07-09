@@ -266,3 +266,7 @@ export class SomeComponent {
   // we will delegate a custom mapping function to a more generic pipe, which will just call it on value change
 }
 ```
+
+## Git
+
+- Give compliments or call out things you learn while reviewing
